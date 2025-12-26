@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Talents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(255, 255, 255, 0.8); }
+        }
+
+        .talents-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .talent-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .talent-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .talent-card:hover::before {
+            opacity: 1;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .talent-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .talent-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .talent-card:hover .talent-icon {
+            animation: spin 0.6s ease-in-out;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .talent-title {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .talent-description {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: rise 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>✨ Magical Talents ✨</h1>
+    
+    <div class="talents-container">
+        <div class="talent-card">
+            <span class="talent-icon">🔮</span>
+            <h2 class="talent-title">Divination</h2>
+            <p class="talent-description">Peer into the future and unveil hidden truths through mystical visions and ancient wisdom.</p>
+        </div>
+
+        <div class="talent-card">
+            <span class="talent-icon">⚡</span>
+            <h2 class="talent-title">Elemental Control</h2>
+            <p class="talent-description">Command the forces of nature - fire, water, earth, and air bend to your will.</p>
+        </div>
+
+        <div class="talent-card">
+            <span class="talent-icon">🌙</span>
+            <h2 class="talent-title">Lunar Magic</h2>
+            <p class="talent-description">Harness the power of moonlight to heal, protect, and illuminate the darkest paths.</p>
+        </div>
+
+        <div class="talent-card">
+            <span class="talent-icon">✨</span>
+            <h2 class="talent-title">Enchantment</h2>
+            <p class="talent-description">Weave spells that charm and mesmerize, bending reality to create wonders.</p>
+        </div>
+
+        <div class="talent-card">
+            <span class="talent-icon">🦋</span>
+            <h2 class="talent-title">Shapeshifting</h2>
+            <p class="talent-description">Transform into any creature, adapting to any situation with fluid grace.</p>
+        </div>
+
+        <div class="talent-card">
+            <span class="talent-icon">🌟</span>
+            <h2 class="talent-title">Cosmic Energy</h2>
+            <p class="talent-description">Channel the power of stars and galaxies to unleash devastating cosmic forces.</p>
+        </div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            particlesContainer.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+        
+        setInterval(createParticle, 300);
+        
+        for (let i = 0; i < 20; i++) {
+            createParticle();
+        }
+
+        const cards = document.querySelectorAll('.talent-card');
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.2)';
+                setTimeout(() => {
+                    this.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
